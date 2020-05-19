@@ -21,4 +21,4 @@ app.use('/api/profile', require('./routes/api/profile'));
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT,() => console.log(`port is open on ${PORT}`));
+app.listen(PORT, () => console.log(`port is open on ${PORT}`));

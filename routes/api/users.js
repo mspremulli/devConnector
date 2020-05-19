@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const gravitar = require('gravatar');
 const bcrpyt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const config = require('config');
 const {check, validationResult} = require('express-validator');
 
 const User = require('../../models/User');
@@ -62,19 +64,32 @@ router.post(
       user.password = await bcrpyt.hash(password, salt);
       await user.save();
 
-
       //return jsonwebtoken
+      const payload = {
+        user:{
+          id:user.id
+        }
+      }
 
-      res.send('user registared');
+      jwt.sign(
+        payload,
+        config.get('jwtSecret'),
+        {expiresIn: 360000 },//change to 3600 for 1 hour later
+        (err, token) => {
+          if(err) throw err;
+          res.json({ token });
+        }
+      );
+
     } 
     catch(err){
       console.error(err.message);
       res.status(500).send('Server Error');
     }
 
-
   }
 );
+
 
 
 
