@@ -22,7 +22,6 @@ router.get('/', auth, async (req,res) => {
 })
 
 
-
 //@route  GET api/auth
 //@desc   Authenticate User
 //@access Public
@@ -63,7 +62,7 @@ router.post(
       if(!isMatch){
         res
         .status(400)
-        .json({errors:[{msg:'UInvalid Credentials'}] });
+        .json({errors:[{msg:'Invalid Credentials'}] });
       }
 
       //return jsonwebtoken
