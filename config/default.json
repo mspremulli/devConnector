@@ -1,4 +1,7 @@
 {
   "mongoURI": "mongodb+srv://mspremulli:12345@cluster0-tyxjs.mongodb.net/test?retryWrites=true&w=majority",
-  "jwtSecret": "mySecretToken"
+  "jwtSecret": "mySecretToken",
+  "githubClientId": "07465e45d0b034564c0d",
+  "githubSecret" : "ca055ab99ca597eb71abe8531f3ea1248d162926"
+  
 }
