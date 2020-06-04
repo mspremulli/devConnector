@@ -110,7 +110,7 @@ if(post.user.toString() !== req.user.id){
 //@route  PUT api/posts/like/:id
 //@desc   like a post
 //@access Private
-router.put('/like/:id', auth, (req, res) => {
+router.put('/like/:id', auth, async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
     //check if post has already been liked
@@ -131,7 +131,7 @@ router.put('/like/:id', auth, (req, res) => {
 //@route  PUT api/posts/unlike/:id
 //@desc   unlike a post
 //@access Private
-router.put('/unlike/:id', auth, (req, res) => {
+router.put('/unlike/:id', auth, async(req, res) => {
   try {
     const post = await Post.findById(req.params.id);
     //check if post has already been liked
