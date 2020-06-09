@@ -24,7 +24,7 @@ const Login = () => {
           <input type="email" 
           placeholder="Email Address" 
           value={email} 
-          onChange={(e) => onchange(e)}
+          onChange={(e) => onChange(e)}
           name="email" 
           required
           />
@@ -35,7 +35,7 @@ const Login = () => {
             placeholder="Password"
             name="password"
             value={password}
-            onChange={(e) => onchange(e)}
+            onChange={(e) => onChange(e)}
             minLength="6"
           />
         </div>
