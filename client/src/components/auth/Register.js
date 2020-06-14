@@ -3,11 +3,13 @@ import {Link} from 'react-router-dom';
 // import axios from 'axios';
 import {connect} from 'react-redux';
 import {setAlert} from '../../actions/alert'
+import {register} from '../../actions/auth';
 import PropTypes from 'prop-types'
 
 
 const Register = (props) => {
   const {setAlert} = props;
+  const {register} = props;
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -41,7 +43,7 @@ const Register = (props) => {
       // } catch (err) {
       //   console.error(err.response.data);
       // }
-      console.log('success');
+      register({name, email, password});
     }
   }
   return(
@@ -103,6 +105,9 @@ const mapStateToProps = () => {
 
 }
 
-Register.PropTypes = {setAlert: PropTypes.func.isRequired}
+Register.PropTypes = {
+  setAlert: PropTypes.func.isRequired,
+  register: PropTypes.func.isRequired
+  }
 
-export default connect(null, {setAlert})(Register);
+export default connect(null, {setAlert, register})(Register);
