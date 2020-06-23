@@ -103,11 +103,11 @@ const Register = (props) => {
   )
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state) => ({
   isAuthenticated: state.auth.isAuthenticated
-}
+})
 
-Register.PropTypes = {
+Register.propTypes = {
   setAlert: PropTypes.func.isRequired,
   register: PropTypes.func.isRequired,
   isAuthenticated: PropTypes.bool

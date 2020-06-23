@@ -59,8 +59,7 @@ export const register = ({name, email, password}) => async dispatch => {
         errors.foreach(error => dispatch(setAlert(error.msg, 'danger')));
       }
       dispatch({
-        type: REGISTER_FAIL,
-        payload: res.data
+        type: REGISTER_FAIL
       });
     }
 }
@@ -92,8 +91,7 @@ export const login = ({email, password}) => async dispatch => {
         errors.foreach(error => dispatch(setAlert(error.msg, 'danger')));
       }
       dispatch({
-        type: LOGIN_FAIL,
-        payload: res.data
+        type: LOGIN_FAIL
       });
     }
 }
