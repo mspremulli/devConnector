@@ -8,7 +8,7 @@ export const getCurrentProfile = () => async dispatch => {
     dispatch({
       type: GET_PROFILE,
       payload: res.data
-    })
+    });
 
   } catch (err) {
     dispatch({
@@ -17,3 +17,34 @@ export const getCurrentProfile = () => async dispatch => {
     });
   }
 }
+
+//create or update profile
+export const createProfile = (formData, history, edit = false) => async dispatch => {
+  try {
+    const config = {
+      headers:{
+        'Content': 'application/json'
+      }
+    }
+
+    const res = await axios.post('/api/profile', formData, config);
+
+    dispatch({
+      type: GET_PROFILE,
+      payload: res.data
+    });
+
+    dispatch(setAlert(edit ? 'Profile Updated' : 'Profile Created'));
+
+    if(!edit){
+      history.push('/dashboard');
+
+    }
+
+  } catch (err) {
+    dispatch({
+      type: PROFILE_ERROR,
+      payload: {msg: err.response.statusText, status: err.response.status}
+    });
+  }
+} 
