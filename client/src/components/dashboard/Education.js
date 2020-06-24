@@ -2,6 +2,7 @@ import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
 import Moment from 'react-moment';
 import {connect} from 'react-redux';
+import {deleteEducation} from '../../actions/profile';
 
 
 const Education = ({education}) => {  
@@ -15,7 +16,7 @@ const Education = ({education}) => {
         }
       </td>
       <td>
-        <button  className='btn btn-danger'>Delete</button>
+        <button  onClick={() => deleteEducation(edu._id)} className='btn btn-danger'>Delete</button>
       </td>
     </ti>  
   ));
@@ -43,7 +44,8 @@ const Education = ({education}) => {
 }
 
 education.propTypes = {
-  education: PropTypes.array.isRequired
+  education: PropTypes.array.isRequired,
+  deleteEducation:PropTypes.func.isRequired,
 }
 
-export default education
+export default connect(null,{deleteEducation})(education)
