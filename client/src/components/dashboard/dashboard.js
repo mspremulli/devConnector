@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux';
 import {getCurrentProfile} from '../../actions/profile';
 import Spinner from '../layouts/Spinner';
+import dashboardActions from './DashboardActions'
 
 const Dashboard = ({
   getCurrentProfile, 
@@ -22,7 +23,9 @@ const Dashboard = ({
     </p>
 
     {profile !== null ? (
-      <Fragment>has</Fragment> 
+      <Fragment>
+        <dashboardActions />
+      </Fragment> 
     ):(
       <Fragment>
         <p>You have not set up a profile yet.</p>
