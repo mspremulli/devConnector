@@ -8,7 +8,7 @@ import PropTypes from 'prop-types'
 const Profiles = ({getProfiles, proflie: {profiles, loading}}) => {
   useEffect(() => {
     getProfiles
-  }, []);
+  }, [getProfiles]);
 
 
   return 
