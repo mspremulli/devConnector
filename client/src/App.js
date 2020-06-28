@@ -13,6 +13,7 @@ import CreateProfile from './components/profile-forms/CreateProfile';
 import EditProfile from './components/profile-forms/EditProfile';
 import AddExperience from './components/profile-forms/AddExperience';
 import Profiles from './components/profiles/Profiles';
+import Profile from './components/profile/Profile';
 import AddEducation from './components/profile-forms/AddEducation';
 import store from './store';
 import {loadUser} from './actions/auth';
@@ -48,6 +49,10 @@ const App = () => {
               <Route exact path ='/profiles'>
               <Profiles />
               </Route>
+              <Route exact path ='/profile/:id'>
+              <Profile />
+              </Route>
+
               <PrivateRoute exact path = '/dashboard'>
                 <Dashboard />
               </PrivateRoute>
