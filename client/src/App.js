@@ -14,6 +14,7 @@ import EditProfile from './components/profile-forms/EditProfile';
 import AddExperience from './components/profile-forms/AddExperience';
 import Profiles from './components/profiles/Profiles';
 import Profile from './components/profile/Profile';
+import Posts from './components/posts/Posts'
 import AddEducation from './components/profile-forms/AddEducation';
 import store from './store';
 import {loadUser} from './actions/auth';
@@ -67,6 +68,9 @@ const App = () => {
               </PrivateRoute>
               <PrivateRoute exact path = '/add-education'>
                 <AddEducation />
+              </PrivateRoute>
+              <PrivateRoute exact path = '/posts'>
+                <Posts />
               </PrivateRoute>
             </Switch>
           </section>

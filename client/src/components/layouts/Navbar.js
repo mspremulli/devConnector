@@ -2,6 +2,8 @@ import React, { Fragment } from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
+
+import Posts from './components/posts/Posts'
 import {logout} from '../../actions/auth';
 
 const Navbar = ({auth: {isAuthenticated, loading}, logout}) => {
@@ -11,6 +13,11 @@ const Navbar = ({auth: {isAuthenticated, loading}, logout}) => {
       <li>
         <Link Link to="/profiles">
           Developers
+        </Link>
+      </li>
+      <li>
+        <Link Link to="/posts">
+          Posts
         </Link>
       </li>
       <li>
