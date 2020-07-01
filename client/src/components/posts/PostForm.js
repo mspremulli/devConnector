@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { addpost } from '../../actions/post'
 
 const PostForm = ({addpost}) => {
   const [text, setText] = useState('');
@@ -15,7 +14,8 @@ const PostForm = ({addpost}) => {
         <form class="form my-1" onSubmit={
           (e) => {e.preventDefault();
         addpost({text});
-        setText=('')}
+        setText=('')
+        }
         }>
           <textarea
             name="text"

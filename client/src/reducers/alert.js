@@ -1,12 +1,5 @@
 import {SET_ALERT, REMOVE_ALERT} from '../actions/types';
-const initialState =[];
-
-//sample data 
-//{
-//   id: 1,
-//   message: 'Please log in',
-//   alertType: 'success'
-// }
+const initialState = [];
 
 export default function(state = initialState, action) {
   switch(action.type){
