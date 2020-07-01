@@ -10,7 +10,9 @@ const PostItem = ({
   removeLike,
   deletePost,
   auth, 
-  post:{_id, text, name, avatar, user, likes, date}}) => {
+  post:{_id, text, name, avatar, user, likes, date},
+  showActions,
+}) => {
   return (
     <div class="post bg-white p-1 my-1">
           <div>
@@ -30,6 +32,8 @@ const PostItem = ({
              <p class="post-date">
                 Posted on <Moment format = 'YYYY/MM/DD'>{date}</Moment>
             </p>
+            {showActions && <Fragment>
+              
             <button onClick={(e) => addLike(id)}  type="button" class="btn btn-light">
               <i class="fas fa-thumbs-up"></i>
              {like.length > 0 &&(
@@ -56,11 +60,15 @@ const PostItem = ({
               <i class="fas fa-times"></i>
             </button>
             )}
+            </Fragment>}
 
           </div>
         </div>
   )
 }
+PostItem.defaultProps ={
+  showActions:true
+};
 
 PostItem.propTypes = {
   post: PropTypes.object.isRequired,
