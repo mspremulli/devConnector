@@ -10,7 +10,7 @@ const PostItem = ({
   removeLike,
   deletePost,
   auth, 
-  post:{_id, text, name, avatar, user, likes, date},
+  post:{id, text, name, avatar, user, like, date, comment},
   showActions,
 }) => {
   return (
@@ -53,7 +53,7 @@ const PostItem = ({
             {!auth.loading && user === auth.user._id && (
 
               <button     
-              onClick={(e) => deletePost(_id)} 
+              onClick={(e) => deletePost(id)} 
               type="button"
               class="btn btn-danger"
             >
@@ -78,7 +78,7 @@ PostItem.propTypes = {
   deletePost:PropTypes.func.isRequired,
 }
 
-const mapStateToProps =(state) ({
+const mapStateToProps = (state) => ({
   auth:state.auth
 })
 

@@ -43,9 +43,9 @@ const Education = ({education}) => {
   )
 }
 
-education.propTypes = {
+Education.propTypes = {
   education: PropTypes.array.isRequired,
   deleteEducation:PropTypes.func.isRequired,
 }
 
-export default connect(null,{deleteEducation})(education)
+export default connect(null,{deleteEducation})(Education)

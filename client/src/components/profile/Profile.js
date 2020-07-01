@@ -31,18 +31,18 @@ const Profile =( {match, getProfileById, profile : {profile, loading }, auth }) 
         <div className='profile-exp bg-white p-2'>
           <h2 className='text-primary'>Experience</h2>
           {profile.experience.length > 0 ? (<Fragment>
-            {profile.experience.map(experience => {
+            {profile.experience.map(experience => (
               <ProfileExperience key = {experience._id} experience={experience} />
-            })}
+            ))}
           </Fragment>) : (<h4>no experience </h4>)}
         </div>
 
         <div className='profile-exp bg-white p-2'>
           <h2 className='text-primary'>Education</h2>
           {profile.education.length > 0 ? (<Fragment>
-            {profile.experience.map(experience => {
+            {profile.experience.map(education => (
               <ProfileEducation key = {education._id} education={education} />
-            })}
+            ))}
           </Fragment>) : (<h4>no education credentials</h4>)}
         </div>
 

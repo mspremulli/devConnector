@@ -8,7 +8,7 @@ import PropTypes from 'prop-types'
 
 const Posts = ({getPosts, post: {posts, loading}}) => {
   useEffect(() => {
-    getPosts
+    getPosts()
   },[getPosts])
   return (
     loading ?  <Spinner /> : (
@@ -19,9 +19,9 @@ const Posts = ({getPosts, post: {posts, loading}}) => {
         </p>
         <PostForm />
         <div className='posts'>
-          {posts.map((post) => {
+          {posts.map((post) => (
             <PostItem key = {post._id} post={post} />
-          })}
+          ))}
         </div>
       </Fragment>
     )

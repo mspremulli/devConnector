@@ -14,7 +14,7 @@ export const getPosts = () => async dispatch => {
 
   } catch (err) {
     dispatch({
-      type: PROFILE_ERROR,
+      type: POST_ERROR,
       payload: {msg: err.response.statusText, status: err.response.status}
     });
   }
@@ -32,7 +32,7 @@ export const getPost = (id) => async dispatch => {
 
   } catch (err) {
     dispatch({
-      type: PROFILE_ERROR,
+      type: POST_ERROR,
       payload: {msg: err.response.statusText, status: err.response.status}
     });
   }
@@ -51,7 +51,7 @@ export const addLike = (id) => async dispatch => {
 
   } catch (err) {
     dispatch({
-      type: PROFILE_ERROR,
+      type: POST_ERROR,
       payload: {msg: err.response.statusText, status: err.response.status}
     });
   }
@@ -69,7 +69,7 @@ export const removeLike = (id) => async dispatch => {
 
   } catch (err) {
     dispatch({
-      type: PROFILE_ERROR,
+      type: POST_ERROR,
       payload: {msg: err.response.statusText, status: err.response.status}
     });
   }
@@ -88,7 +88,7 @@ export const deletePost = (id) => async dispatch => {
 
   } catch (err) {
     dispatch({
-      type: PROFILE_ERROR,
+      type: POST_ERROR,
       payload: {msg: err.response.statusText, status: err.response.status}
     });
   }
@@ -106,12 +106,12 @@ export const addPost = (formData) => async dispatch => {
 
     dispatch({
       type: ADD_POST,
-      payload: red.data
+      payload: res.data
     })
 
   } catch (err) {
     dispatch({
-      type: PROFILE_ERROR,
+      type: POST_ERROR,
       payload: {msg: err.response.statusText, status: err.response.status}
     });
   }
@@ -135,7 +135,7 @@ export const addComment = (postId, formData) => async dispatch => {
 
   } catch (err) {
     dispatch({
-      type: PROFILE_ERROR,
+      type: POST_ERROR,
       payload: {msg: err.response.statusText, status: err.response.status}
     });
   }
@@ -153,7 +153,7 @@ export const removeComment = (postId, commentId) => async dispatch => {
 
   } catch (err) {
     dispatch({
-      type: PROFILE_ERROR,
+      type: POST_ERROR,
       payload: {msg: err.response.statusText, status: err.response.status}
     });
   }

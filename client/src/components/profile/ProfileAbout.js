@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 
-const ProfileAbout = ({profile: {bio,skills,user} }) => {
+const ProfileAbout = ({profile: {bio,skills,user:{name} } }) => (
   
     <div class="profile-about bg-light p-2">
       { bio && (
@@ -25,7 +25,7 @@ const ProfileAbout = ({profile: {bio,skills,user} }) => {
       </div>
     </div>
   
-}
+)
 
 ProfileAbout.propTypes = {
   profile: PropTypes.object.isRequired,

@@ -37,7 +37,7 @@ const AddExperience = ({addExperience, history}) => {
           positions that you have had in the past
         </p>
         <small>* = required field</small>
-        <form className="form" onSubmit={() => onSubmit(e)}>
+        <form className="form" onSubmit={(e) => onSubmit(e)}>
           <div className="form-group">
             <input type="text" placeholder="* Job Title" name="title" required value={title} onChange = {(e) => onChange(e)} />
           </div>
@@ -86,4 +86,4 @@ AddExperience.propTypes = {
   addExperience: PropTypes.func.isRequired
 }
 
-export default connect(null,{addExperience})((withRouter(AddExperience));
+export default connect(null,{addExperience})(withRouter(AddExperience));

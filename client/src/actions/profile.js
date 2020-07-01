@@ -2,11 +2,12 @@ import axios from 'axios';
 import {setAlert} from './alert';
 import {
   GET_PROFILE,
-  GET_PROFILE,
+  GET_PROFILES,
   GET_REPOS,
   PROFILE_ERROR,
   UPDATE_PROFILE,
-  CLEAR_PROFILE
+  CLEAR_PROFILE,
+  DELETE_PROFILE
 } from './types';
 
 //get current profile
@@ -46,7 +47,7 @@ export const getProfiles = () => async dispatch => {
 }
 
 //get profile by id
-export const getProfiles = (userId) => async dispatch => {
+export const getProfileById = (userId) => async dispatch => {
   dispatch({type: CLEAR_PROFILE});
 
   try {
@@ -116,7 +117,7 @@ export const createProfile = (formData, history, edit = false) => async dispatch
 } 
 
 //add experience
-export const addExpeience = (formData, history) => async dispatch => {
+export const addExperience = (formData, history) => async dispatch => {
   try {
     const config = {
       headers:{
@@ -133,10 +134,6 @@ export const addExpeience = (formData, history) => async dispatch => {
 
     dispatch(setAlert('Experience added', 'success'));
 
-    if(!edit){
-      history.push('/dashboard');
-
-    }
 
   } catch (err) {
     dispatch({
@@ -164,10 +161,7 @@ export const addEducation = (formData, history) => async dispatch => {
 
     dispatch(setAlert('Education added', 'success'));
 
-    if(!edit){
-      history.push('/dashboard');
-
-    }
+  
 
   } catch (err) {
     dispatch({
@@ -180,10 +174,10 @@ export const addEducation = (formData, history) => async dispatch => {
 //Delete Experience
 export const deleteExperience =(id) => async dispatch => {
   try {
-     await axios.delete(`/api/profile/experience/${id}`);
+     const res = await axios.delete(`/api/profile/experience/${id}`);
     dispatch({
       type: UPDATE_PROFILE,
-      payload:res.data
+      payload: res.data
     })
     dispatch(setAlert('Experience removed', 'success'));
 
@@ -198,7 +192,7 @@ export const deleteExperience =(id) => async dispatch => {
 //Delete Education
 export const deleteEducation =(id) => async dispatch => {
   try {
-    await axios.delete(`/api/profile/education/${id}`);
+    const res = await axios.delete(`/api/profile/education/${id}`);
     dispatch({
       type: UPDATE_PROFILE,
       payload:res.data

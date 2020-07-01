@@ -32,7 +32,7 @@ export default function(state = initialState, action) {
       case DELETE_POST:
       return {
         ...state,
-        posts: state.post.filter(post => post_id !== payload),
+        posts: state.post.filter(post => post._id !== payload),
         loading: false
       }
       case POST_ERROR:
@@ -44,9 +44,9 @@ export default function(state = initialState, action) {
       case UPDATE_LIKES:
       return {
         ...state,
-        posts: state.posts.map(post => {
+        posts: state.posts.map(post => (
           post._id === payload.id ? {...post, likes: payload.likes} : post
-        }),
+        )),
         loading: false
       }
 
