@@ -179,7 +179,7 @@ const onSubmit = (e) => {
 
 EditProfile.propTypes = {
   createProfile: PropTypes.func.isRequired,
-  profile: PropTypes.func.isRequired,
+  getCurrentProfile: PropTypes.func.isRequired,
   profile: PropTypes.object.isRequired
 }
 
