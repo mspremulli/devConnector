@@ -19,33 +19,20 @@ const Register = (props) => {
   const {name, email, password, password2 } = formData;
 
   const onChange = (e) => setFormData({...formData, [e.target.name]: e.target.value});
+  
   const onSubmit = async (e) => {
     e.preventDefault();
     if(password !== password2) {
-      setAlert('password does not match', 'danger');
+      console.log('passwords dont match');
+      
+      // setAlert('password does not match', 'danger');
     }
     else{
-      // const newUser = {
-      //   name,
-      //   email,
-      //   password,
-      // }
-      // try {
-      //   const config = {
-      //     headers: {
-      //       'Content-Type': 'application/json'
-      //     }
-      //   }
-      //   const body = JSON.stringify(newUser);
-      //   const res = await axios.post('/api/users', body, config);
-      //   console.log(res.data);
-      // } catch (err) {
-      //   console.error(err.response.data);
-      // }
+    
       register({name, email, password});
     }
     if(isAuthenticated) {
-      return <Redirect to='./dashboard' />
+      return <Redirect to='/dashboard' />
     }
   }
   return(

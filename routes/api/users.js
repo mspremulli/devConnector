@@ -33,8 +33,6 @@ router.post(
       return res.status(400).json({errors:errors.array()});
     }
     
-    
-    
     const{name, email, password} = req.body;
     
     try{
@@ -89,10 +87,5 @@ router.post(
 
   }
 );
-
-
-
-
-
 
 module.exports = router;
