@@ -4,7 +4,7 @@ import {
   REGISTER_FAIL, 
   REGISTER_SUCCESS, 
   USER_LOADED, 
-  // AUTH_ERROR,
+  AUTH_ERROR,
   LOGIN_FAIL,
   LOGIN_SUCCESS,
   LOGOUT,
@@ -38,7 +38,7 @@ export const loadUser = () => async dispatch => {
 
   } catch (err) {
     dispatch({
-      type: Audio
+      type: AUTH_ERROR
     });
   }
 
@@ -69,7 +69,7 @@ export const register = ({name, email, password}) => async dispatch => {
     catch (err) {
       const errors = err.response.data.errors;
       if(errors) {
-        errors.foreach(error => dispatch(setAlert(error.msg, 'danger')));
+        // errors.foreach(error => dispatch(setAlert(error.msg, 'danger')));
       }
       dispatch({
         type: REGISTER_FAIL
