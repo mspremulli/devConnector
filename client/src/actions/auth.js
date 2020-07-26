@@ -12,17 +12,6 @@ import {
  } from './types';
 import setAuthToken from '../utils/setAuthToken';
 
-
-// import express from 'express';
-// import cors from 'cors';
-// const cors = require('cors');
-// const express = require('express');
-// const app = express();
-// app.use(cors());
-
-
-
-
 //Load User
 export const loadUser = () => async dispatch => {
   if(localStorage.token) {
@@ -30,7 +19,7 @@ export const loadUser = () => async dispatch => {
   }
   
   try {
-    const res = await axios.get('/api/auth');
+    const res = await axios.get('http://localhost:5000/api/auth');
     dispatch({
       type: USER_LOADED,
       payload: res.data
@@ -57,8 +46,8 @@ export const register = ({name, email, password}) => async dispatch => {
     console.log('body', body);
     try {
       console.log('testing...')
-      // const res = await axios.post('http://localhost:5000/api/users', body, config);
-      const res = await axios.post('/api/users', body, config);
+      const res = await axios.post('http://localhost:5000/api/users', body, config);
+      // const res = await axios.post('/api/users', body, config);
       console.log('testing...2')
       dispatch({
         type: REGISTER_SUCCESS,
@@ -88,7 +77,7 @@ export const login = ({email, password}) => async dispatch => {
   const body = JSON.stringify({email, password});
     
     try {
-      const res = await axios.post('/api/auth', body, config);
+      const res = await axios.post('http://localhost:5000/api/auth', body, config);
       dispatch({
         type: LOGIN_SUCCESS,
         payload: res.data
