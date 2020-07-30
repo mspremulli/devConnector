@@ -10,8 +10,8 @@ const CreateProfile = ({createProfile, history}) => {
     website: '',
     location: '',
     status: '',
-    skills: '',
-    githubusername: '',
+    skills: [],
+    githubusername: '', 
     bio: '',
     twitter: '',
     facebook: '',
@@ -39,8 +39,9 @@ const CreateProfile = ({createProfile, history}) => {
   } = formData;
 
 const onChange = (e) => {
+  // console.log(e.target.value);
   setFormData({
-    ...formData, [e.target]: e.target.value
+    ...formData, [e.target.name]: e.target.value
   });
 }
 
